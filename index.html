@@ -1,466 +1,620 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>HSS 2026 | Hyderabad Startup Summit</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- FAVICON -->
-<link rel="icon" href="logo.png">
-
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#3B82F6",
+              "primary-dim": "#2563EB",
+              "secondary": "#6366F1",
+              "secondary-dim": "#4F46E5",
+              "tertiary": "#60A5FA",
+              "background": "#0A0F1C",
+              "surface": "#111827",
+              "surface-variant": "#1F2937",
+              "on-surface": "#F9FAFB",
+              "on-surface-variant": "#D1D5DB",
+              "outline-variant": "rgba(255, 255, 255, 0.06)",
+              "primary-fixed": "#3B82F6",
+              "on-primary-fixed": "#FFFFFF",
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
 <style>
-
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
- font-family:'Poppins',sans-serif;
- scroll-behavior:smooth;
-}
-
-body{
- background:#0a0a0a;
- color:#e5e7eb;
-}
-
-/* NAVBAR */
-nav{
- position:fixed;
- top:0;
- width:100%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:15px 40px;
- background:rgba(10,10,10,0.8);
- backdrop-filter:blur(10px);
- border-bottom:1px solid rgba(255,255,255,0.05);
- z-index:1000;
-}
-nav h2{
- color:#fff;
- font-weight:600;
-}
-nav a{
- color:#cbd5e1;
- margin-left:20px;
- text-decoration:none;
- transition:0.3s;
-}
-nav a:hover{
- color:#fff;
-}
-
-/* HERO */
-header{
- height:100vh;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- text-align:center;
- background:radial-gradient(circle at top,#1e293b,#020617);
- padding:20px;
-}
-header h1{
- font-size:3rem;
- font-weight:700;
-}
-header p{
- margin-top:10px;
- color:#94a3b8;
-}
-
-.btn{
- margin-top:25px;
- padding:12px 28px;
- background:#fff;
- color:#000;
- border:none;
- border-radius:8px;
- font-weight:600;
- cursor:pointer;
- transition:0.3s;
-}
-.btn:hover{
- background:#e2e8f0;
-}
-
-/* SECTION */
-.section{
- padding:100px 20px;
- max-width:1100px;
- margin:auto;
- border-bottom:1px solid rgba(255,255,255,0.05);
-}
-.section h2{
- margin-bottom:25px;
- font-size:1.8rem;
- color:#fff;
-}
-
-/* GRID */
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
-}
-
-/* CARD */
-.card{
- background:#111827;
- padding:25px;
- border-radius:16px;
- border:1px solid rgba(255,255,255,0.05);
- transition:0.3s;
-}
-.card:hover{
- transform:translateY(-6px);
- border-color:rgba(255,255,255,0.15);
-}
-
-.card h3{
- margin-bottom:10px;
- color:#fff;
-}
-.card p{
- color:#9ca3af;
- margin-bottom:10px;
-}
-.card ul{
- list-style:none;
-}
-.card ul li{
- margin-bottom:8px;
- color:#d1d5db;
- padding-left:15px;
- position:relative;
-}
-.card ul li::before{
- content:"•";
- position:absolute;
- left:0;
- color:#6366f1;
-}
-
-/* SPEAKERS */
-.speaker img{
- width:100%;
- height:180px;
- object-fit:cover;
- border-radius:10px;
- margin-bottom:10px;
-}
-
-/* TIMELINE */
-.timeline div{
- margin:10px 0;
- padding:12px;
- background:#111827;
- border-left:3px solid #6366f1;
- border-radius:6px;
-}
-
-/* FOOTER */
-footer{
- text-align:center;
- padding:30px;
- background:#020617;
- color:#6b7280;
-}
-.hero-images{
- display:flex;
- gap:30px;
- justify-content:center;
- align-items:center;
- margin-bottom:25px;
-}
-
-.hero-images img{
- width:180px;   /* medium size */
- height:auto;
- object-fit:contain;
-}
-.map-container{
- margin:30px auto;
- width:fit-content;   /* key fix */
- max-width:100%;
- border-radius:16px;
- overflow:hidden;
- box-shadow:0 10px 40px rgba(0,0,0,0.6);
-}
-.map-container iframe{
- display:block;
- width:600px;   /* control map size */
- height:350px;
- border:0;
-}
-
-.location-text{
- text-align:center;
- margin-top:15px;
- color:#9ca3af;
- font-size:0.95rem;
-}
-</style>
-<style>
-/* Responsive styles for mobile */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    padding: 15px 10px;
-    text-align: center;
-    position: relative; /* Change from fixed so it doesn't overlap header content */
-  }
-  nav h2 {
-    margin-bottom: 10px;
-  }
-  nav div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-left: 0;
-  }
-  nav a {
-    margin-left: 0;
-  }
-  header {
-    padding: 60px 15px;
-    height: auto;
-    min-height: calc(100vh - 90px); /* Adjust height for nav */
-  }
-  header h1 {
-    font-size: 2.2rem;
-  }
-  .hero-images {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .hero-images img {
-    width: 140px;
-  }
-  .section {
-    padding: 60px 15px;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .map-container {
-    width: 100%;
-    margin: 20px 0;
-    max-width: 100%;
-    border-radius: 12px;
-  }
-  .map-container iframe {
-    width: 100%;
-    height: 280px;
-  }
-  .card {
-    padding: 20px;
-  }
-  footer {
-    padding: 20px 15px;
-    font-size: 0.95rem;
-  }
-}
-</style>
+        .glass-card {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glow-border {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+    
+    .timeline-gradient-line { background: linear-gradient(180deg, #3B82F6 0%, #6366F1 100%); }
+    .hero-glow { background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%); }
+  
+    .bg-mesh { background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.05) 0, transparent 50%); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav>
-<h2>HSS 2026</h2>
-<div>
-<a href="#about">About</a>
-<a href="#panels">Panels</a>
-<a href="#tickets">Tickets</a>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0A0F1C]/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(59,130,246,0.08)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#3B82F6] uppercase font-headline">
+                HSS 2026
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight font-bold text-[#F9FAFB]">
+<a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#about">About</a>
+<a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#panels">Panels</a>
+<a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#speakers">Speakers</a>
+<a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#schedule">Schedule</a>
+<a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#tickets">Tickets</a>
+</div>
+<a href="#tickets" class="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2.5 rounded-full font-bold active:scale-95 duration-200 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                Register Now
+            </a>
 </div>
 </nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 bg-mesh">
 
-<!-- HERO -->
-<header>
-
-<div class="hero-images">
-  <img src="./image.png" alt="logo1">
-  <img src="./ekthaa (1).png" alt="logo2">
+<!-- Central Glow -->
+<div class="absolute inset-0 hero-glow pointer-events-none"></div>
+<section class="relative z-10 container mx-auto px-6 text-center py-32 flex flex-col items-center">
+<!-- Eyebrow -->
+<div class="mb-6 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]">
+<span class="text-secondary font-label font-semibold uppercase tracking-[0.2em] text-sm">
+                    Hyderabad Startup Summit 2026
+                </span>
 </div>
+<!-- Heading -->
+<h1 class="max-w-5xl text-5xl md:text-7xl lg:text-8xl font-headline font-extrabold tracking-tighter mb-8 leading-[1.1]">
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#F9FAFB] via-[#3B82F6] to-[#6366F1]">
+                    The Digital Pulse of India's Silicon Valley
+                </span>
+</h1>
+<!-- Subtext -->
+<p class="max-w-2xl text-on-surface-variant text-lg md:text-xl leading-relaxed mb-12 font-medium">
+                Join <span class="text-primary font-bold">1000+ Builders</span>, VCs, and Creators for a weekend of pure innovation.
+            </p>
+<!-- CTA Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-6 mb-24">
+<a href="#tickets" class="group relative bg-gradient-to-br from-primary to-secondary p-[1px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+<div class="bg-gradient-to-r from-primary to-secondary text-white font-bold px-10 py-4 rounded-full transition-all text-center">
+                        Get Tickets
+                    </div>
+</a>
+<a href="#schedule" class="group flex items-center gap-2 px-10 py-4 rounded-full border border-white/10 text-on-surface font-semibold bg-transparent transition-all duration-300 hover:bg-white/5 hover:brightness-110">
+                    View Schedule
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Sponsor Section -->
+<div class="w-full max-w-6xl">
+<div class="flex flex-col items-center gap-8">
+<span class="text-white/40 font-label text-xs font-bold tracking-[0.3em] uppercase">
+                        Sponsors &amp; Partners
+                    </span>
+<div class="w-full bg-[#111827]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-10 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+<!-- Logos -->
+<div class="hover:-translate-y-1 hover:opacity-80 transition-all duration-300 cursor-pointer flex items-center gap-3">
+<img class="h-16 md:h-24 w-auto object-contain transition-opacity" alt="Flashshoot Logo" src="./image.png"/>
+</div>
+<div class="hover:-translate-y-1 hover:opacity-80 transition-all duration-300 cursor-pointer">
+<img class="h-16 md:h-24 w-auto object-contain transition-opacity" alt="Ekthaa Logo" src="./ekthaa (1).png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Background Decorative Element -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[500px] bg-gradient-to-t from-[#3B82F6]/5 to-transparent blur-3xl pointer-events-none"></div>
 
-<h1>Hyderabad Startup Summit 2026</h1>
-<p>5 Power Panels • 20+ Speakers • 1000+ Builders</p>
-<p>April 19, 2026 | Hyderabad</p>
+</section>
+<!-- About Section -->
+<section class="py-32 px-6" id="about">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+<div class="flex-1">
+<label class="font-label text-xs tracking-[0.2em] uppercase font-bold text-secondary mb-4 block">Our Mission</label>
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-8 leading-tight">Connecting the <span class="text-primary">Builders</span> of Tomorrow.</h2>
+<p class="text-on-surface-variant text-xl leading-relaxed mb-8">
+                        This summit connects founders, creators, investors and students with real-world insights, networking and opportunities. We're building the infrastructure for the next billion-dollar ideas to take flight in the heart of Hyderabad.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<span class="text-4xl font-bold font-headline text-primary">100+</span>
+<p class="text-sm text-on-surface-variant">VC Meetings</p>
+</div>
+<div>
+<span class="text-4xl font-bold font-headline text-primary">24H</span>
+<p class="text-sm text-on-surface-variant">Networking</p>
+</div>
+</div>
+</div>
+<!-- Images Removed -->
+</div>
+</section>
+<!-- Power Panels -->
+<section class="py-24 px-6 max-w-7xl mx-auto relative overflow-hidden" id="panels">
+<!-- Background Radial Glows -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Section Header -->
+<div class="mb-16 relative z-10">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-sm font-label mb-4 block">Power Panels 2026</span>
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter text-on-surface max-w-3xl">
+                Engage with the <span class="text-secondary">Pulse</span> of Innovation.
+            </h1>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+<!-- Card 1 (Founder - 2 cols) -->
+<div class="md:col-span-2 group glass-card p-10 rounded-2xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] relative overflow-hidden">
+<div class="absolute left-0 top-10 bottom-10 w-1.5 bg-gradient-to-b from-primary via-secondary to-primary-dim rounded-r-full"></div>
+<div class="flex items-start justify-between mb-8">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs font-label">Founder Panel</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface mt-2 tracking-tight uppercase">From Idea to Execution.</h2>
+</div>
+<div class="p-4 bg-surface-variant rounded-xl text-primary border border-white/5">
+<span class="material-symbols-outlined text-4xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-8 mt-auto">
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Starting from scratch</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">First customers</span>
+</li>
+</ul>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Scaling challenges</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Real failures</span>
+</li>
+</ul>
+</div>
+<!-- Contextual Detail for larger card -->
+<div class="mt-10 pt-8 border-t border-white/5">
+<img class="w-full h-40 object-cover rounded-xl opacity-20 hover:opacity-40 transition-opacity" data-alt="Modern high-tech startup office interior with collaborative spaces and soft neon lighting accents at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdfio2ihqUt8df_daLoDQk9TOHH1MnmzkMZmx3mb19if-b9txZcTrzpFnDeZfqjgg0r-YM6DN6bURs-amccAef4ph28SBzIB41PYRKljoShPZriUBbck8WihBuPpkIc0FffY520SkkE5JFwgwa66SeamK6BXlDB-ZV-FlOmM9T_FEGXMdyMHXT5dyGAVSQISAXByX_Jber40i5fLinG3dge5TmLjzEt7GwKEcUnLWucxMyM93wAN8U4cqzGDv0gKvmE2NwTWgjXKs"/>
+</div>
+</div>
+<!-- Card 2 (Tech) -->
+<div class="group glass-card p-10 rounded-2xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] relative overflow-hidden">
+<div class="absolute left-0 top-10 bottom-10 w-1.5 bg-gradient-to-b from-primary to-secondary rounded-r-full"></div>
+<div class="mb-8">
+<div class="w-12 h-12 bg-surface-variant rounded-lg text-primary flex items-center justify-center mb-6 border border-white/5">
+<span class="material-symbols-outlined text-2xl" data-icon="memory">memory</span>
+</div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs font-label">Tech Panel</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface mt-2 tracking-tight uppercase">Building Tech Products.</h2>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">MVP building</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">AI trends</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Hiring tech teams</span>
+</li>
+</ul>
+</div>
+<!-- Card 3 (Creator) -->
+<div class="group glass-card p-10 rounded-2xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] relative overflow-hidden">
+<div class="absolute left-0 top-10 bottom-10 w-1.5 bg-gradient-to-b from-secondary to-primary rounded-r-full"></div>
+<div class="mb-8">
+<div class="w-12 h-12 bg-surface-variant rounded-lg text-secondary flex items-center justify-center mb-6 border border-white/5">
+<span class="material-symbols-outlined text-2xl" data-icon="video_camera_front">video_camera_front</span>
+</div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs font-label">Creator Panel</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface mt-2 tracking-tight uppercase">Content & Income.</h2>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Growing audience</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Monetization</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Brand deals</span>
+</li>
+</ul>
+</div>
+<!-- Card 4 (Branding) -->
+<div class="group glass-card p-10 rounded-2xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] relative overflow-hidden">
+<div class="absolute left-0 top-10 bottom-10 w-1.5 bg-gradient-to-b from-primary to-secondary rounded-r-full"></div>
+<div class="mb-8">
+<div class="w-12 h-12 bg-surface-variant rounded-lg text-primary flex items-center justify-center mb-6 border border-white/5">
+<span class="material-symbols-outlined text-2xl" data-icon="person_check">person_check</span>
+</div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs font-label">Branding Panel</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface mt-2 tracking-tight uppercase">Build Your Brand.</h2>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">LinkedIn growth</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Positioning</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Trust building</span>
+</li>
+</ul>
+</div>
+<!-- Card 5 (VC) -->
+<div class="group glass-card p-10 rounded-2xl flex flex-col transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] relative overflow-hidden">
+<div class="absolute left-0 top-10 bottom-10 w-1.5 bg-gradient-to-b from-primary-dim to-primary rounded-r-full"></div>
+<div class="mb-8">
+<div class="w-12 h-12 bg-surface-variant rounded-lg text-primary flex items-center justify-center mb-6 border border-white/5">
+<span class="material-symbols-outlined text-2xl" data-icon="monetization_on">monetization_on</span>
+</div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs font-label">VC Panel</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface mt-2 tracking-tight uppercase">Invester Logic.</h2>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Fundraising</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Pitching</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="chevron_right">chevron_right</span>
+<span class="font-medium">Startup evaluation</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Featured Speakers -->
+<section class="py-32 px-6" id="speakers">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline text-4xl font-bold">Featured Ecosystem Builders</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Speaker 1 -->
+<div class="group relative">
+<div class="mb-6 flex justify-center items-center p-4 h-32 bg-surface-variant rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbzdOpizwdfHNDY8WICWyAj0UZZce6fwzRw&s" alt="Makers of Milkshakes Logo" class="w-auto h-full object-contain rounded mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity">
+</div>
+<h3 class="font-headline text-2xl font-bold mb-1">Makers of Milkshakes</h3>
+<p class="text-on-surface-variant text-sm">Industry Leader</p>
+</div>
+<!-- Speaker 2 -->
+<div class="group relative md:mt-12">
+<div class="mb-6 flex justify-center items-center p-4 h-32 bg-surface-variant rounded-2xl border border-secondary/10 hover:border-secondary/30 transition-colors">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO02-SnKsjLVkAgptbln6-6byl1uIsjx1CSQ&s" alt="Flashshoot Logo" class="w-auto h-full object-contain rounded mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity">
+</div>
+<h3 class="font-headline text-2xl font-bold mb-1">Flashshoot</h3>
+<p class="text-on-surface-variant text-sm">Product Innovator</p>
+</div>
+<!-- Speaker 3 -->
+<div class="group relative">
+<div class="mb-6 flex justify-center items-center p-4 h-32 bg-surface-variant rounded-2xl border border-blue-400/10 hover:border-blue-400/30 transition-colors">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXId9o07pSKsh0UychMjTFT5LHf_H2INdDPA&s" alt="BKP Homes Logo" class="w-auto h-full object-contain rounded mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity">
+</div>
+<h3 class="font-headline text-2xl font-bold mb-1">BKP Homes</h3>
+<p class="text-on-surface-variant text-sm">Real Estate Disruptor</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedule -->
+<section id="schedule" class="relative overflow-hidden pt-32 pb-24 px-6 max-w-7xl mx-auto">
 
-<button class="btn" onclick="scrollToTickets()">Get Tickets</button>
-
+<!-- Hero Header Section -->
+<header class="mb-20 text-center lg:text-left relative">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+<div class="inline-block px-4 py-1.5 mb-6 rounded-full glass-card">
+<span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase font-label">The Digital Pulse</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tight mb-6">
+                Summit <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-blue-400">Schedule</span>
+</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg md:text-xl font-body leading-relaxed">
+                A meticulously curated timeline of innovation, spanning from foundational keynotes to the frontier of venture capital and creative branding.
+            </p>
 </header>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-<h2>About Event</h2>
-<p>This summit connects founders, creators, investors and students with real-world insights, networking and opportunities.</p>
-</section>
-
-<!-- PANELS -->
-<section id="panels" class="section">
-<h2>5 Power Panels</h2>
-<div class="grid">
-
-<div class="card">
-<h3>🧠Founder Panel</h3>
-<p><b>From Idea to Execution</b></p>
-<ul>
-<li>Starting from scratch</li>
-<li>First customers</li>
-<li>Scaling challenges</li>
-<li>Real failures</li>
-</ul>
+<!-- Schedule Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+<!-- 10:00 - Grand Opening Keynote -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-primary font-bold text-xs tracking-widest uppercase font-label">Keynote</span>
 </div>
-
-<div class="card">
-<h3>💻 Tech Founder Panel</h3>
-<p><b>Building Tech Products in 2026</b></p>
-<ul>
-<li>MVP building</li>
-<li>AI trends</li>
-<li>Hiring tech teams</li>
-</ul>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-primary transition-colors">Grand Opening Keynote</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Setting the stage for the next decade of digital evolution in the heart of Hyderabad's tech landscape.</p>
 </div>
-
-<div class="card">
-<h3>🎥 Creator Panel</h3>
-<p><b>Turning Content into Income</b></p>
-<ul>
-<li>Growing audience</li>
-<li>Monetization</li>
-<li>Brand deals</li>
-</ul>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">10:00</span>
 </div>
-
-<div class="card">
-<h3>🌟 Personal Branding</h3>
-<p><b>Build Your Brand</b></p>
-<ul>
-<li>LinkedIn growth</li>
-<li>Positioning</li>
-<li>Trust building</li>
-</ul>
 </div>
-
-<div class="card">
-<h3>💰 VC/Investor Panel</h3>
-<p><b>What Investors Look For</b></p>
-<ul>
-<li>Fundraising</li>
-<li>Pitching</li>
-<li>Startup evaluation</li>
-</ul>
+<!-- 10:30 - The Founder Panel (HIGHLIGHTED) -->
+<div class="glass-card rounded-2xl p-6 border-secondary/50 shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="rocket_launch">rocket_launch</span>
 </div>
-
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-secondary font-bold text-xs tracking-widest uppercase font-label">Main Event</span>
 </div>
-</section>
-
-<!-- SPEAKERS -->
-<section class="section">
-<h2>Featured Speakers</h2>
-<div class="grid">
-
-<div class="card speaker">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbzdOpizwdfHNDY8WICWyAj0UZZce6fwzRw&s">
-<p>Makers of Milkshakes</p>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-secondary transition-colors">The Founder Panel</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Exclusive insights from unicorns that scaled from zero to IPO within the Indian startup ecosystem.</p>
 </div>
-
-<div class="card speaker">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO02-SnKsjLVkAgptbln6-6byl1uIsjx1CSQ&s">
-<p>Flashshoot</p>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">10:30</span>
 </div>
-
-<div class="card speaker">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXId9o07pSKsh0UychMjTFT5LHf_H2INdDPA&s">
-<p>BKP Homes</p>
 </div>
-
+<!-- 11:15 - Tech Panel: AI & Automation -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="memory">memory</span>
+<span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase font-label">Panel</span>
 </div>
-</section>
-
-<!-- SCHEDULE -->
-<section class="section">
-<h2>Schedule</h2>
-<div class="timeline">
-<div>10:00 Opening</div>
-<div>10:30 Founder Panel</div>
-<div>11:15 Tech Panel</div>
-<div>12:00 Creator Panel</div>
-<div>1:30 Branding Panel</div>
-<div>2:15 VC Panel</div>
-<div>3:00 Networking</div>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-primary transition-colors">Tech Panel: AI &amp; Automation</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Debating the role of generative agents and autonomous systems in shaping future workflows.</p>
 </div>
-</section>
-
-<!-- TICKETS -->
-<section id="tickets" class="section">
-<h2>Tickets</h2>
-<div class="grid">
-
-<div class="card">
-<h3>₹499</h3>
-<p>Attendee Pass</p>
-<button class="btn" onclick="buyTicket()">Buy Now</button>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">11:15</span>
 </div>
-
-<div class="card">
-<h3>₹1999</h3>
-<p>Pro Pass</p>
-<button class="btn" onclick="buyTicket()">Buy Now</button>
 </div>
-
+<!-- 12:00 - Creator Panel -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="palette">palette</span>
+<span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase font-label">Panel</span>
+</div>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-primary transition-colors">Creator Panel</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Understanding the economy of attention and how to build a brand through authentic storytelling.</p>
+</div>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">12:00</span>
+</div>
+</div>
+<!-- Interstitial Full Width Image Callout -->
+<div class="lg:col-span-2 relative h-48 rounded-3xl overflow-hidden my-8 group">
+<img alt="Auditorium" class="w-full h-full object-cover filter saturate-50 contrast-125 opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="a large high-tech dark auditorium with cyan and purple stage lighting, blurred audience in foreground, professional tech summit atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQTu71OAOzj8iIs290l2Ze1wbsGC-cl0MX1dZ4hU0ydQxvkgg76Q9qko8jM9xxaskiMs-qPwrBaFwa_mFzXrgQ5_44oz9ph3BwIRT_GOsw64gWQ_FjUahAV26M52LEZYEKeii03n03Q5X1crEUFKVLxHCvJ3jiSnFEcp7G7NB3RBaFIYR8JldH4SmTXfN5hNCHOUTynw32tFQevdRwc55MtPt7YV1pUgr5LOIgkXjGGz2EcG_BQ8l7YSzl4uYzj6kEL2syqwYS9F8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<p class="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-2">Afternoon Session</p>
+<h4 class="text-3xl font-headline font-black text-white">The Pulse Continues</h4>
+</div>
+</div>
+</div>
+<!-- 13:30 - Branding Panel -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="campaign">campaign</span>
+<span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase font-label">Panel</span>
+</div>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-primary transition-colors">Branding Panel</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Developing a visual and psychological identity that resonates in a hyper-saturated market.</p>
+</div>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">13:30</span>
+</div>
+</div>
+<!-- 14:15 - VC Panel: The Capital Gap -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="account_balance">account_balance</span>
+<span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase font-label">Financing</span>
+</div>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-primary transition-colors">VC Panel: The Capital Gap</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Top-tier investors discuss the current funding climate and what it takes to secure Series A today.</p>
+</div>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">14:15</span>
+</div>
+</div>
+<!-- Networking  -->
+<div class="glass-card rounded-2xl p-6 lg:col-span-2 hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 group border-dashed border-primary/10 bg-primary/5">
+<div class="flex justify-between items-start">
+<div class="pr-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="local_bar" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_bar</span>
+<span class="text-secondary font-bold text-xs tracking-widest uppercase font-label">Closing Mixer</span>
+</div>
+<h3 class="text-xl font-bold text-white font-headline group-hover:text-secondary transition-colors">Networking </h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Connect with speakers and peers in an informal setting with curated refreshments and digital lounge beats.</p>
+</div>
+<span class="text-primary font-bold text-lg whitespace-nowrap font-headline">15:00</span>
+</div>
+</div>
 </div>
 </section>
-<!-- LOCATION -->
-<section class="section" id="location">
-<h2>Location</h2>
+<!-- Tickets -->
+<section class="py-32 px-6" id="tickets">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline text-5xl md:text-6xl font-extrabold mb-6">Secure Your Spot</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-lg">
+                Join 1000+ founders, operators, and investors in Hyderabad.<br/>
+<span class="font-bold text-primary">Limited seats. No walk-ins.</span>
+</p>
+</div>
 
-<div class="map-container">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60922.675497521464!2d78.49193922167969!3d17.379738999999997!2m3!1f0!2f0!3f0!3m2
-    !1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb98d3635fb175%3A0xc7ba7272fcc0a554!2sSubham%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1774258211771!5m2!1sen!2sin"
+<div class="flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-16">
+<!-- Attendee Pass -->
+<div class="w-full max-w-md glass-card bg-[#111827] border-white/5 p-10 md:p-12 rounded-[2.5rem] relative overflow-hidden group hover:-translate-y-2 transition-all duration-500">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-8xl">confirmation_number</span>
+</div>
+
+<div class="relative z-10">
+<h3 class="text-xl font-bold mb-1 font-headline text-on-surface-variant">Attendee Pass</h3>
+<div class="flex items-baseline gap-1 mb-2">
+<span class="text-2xl font-medium text-on-surface-variant">₹</span>
+<span class="text-6xl font-black font-headline text-[#F9FAFB]">499</span>
+</div>
+<p class="text-sm font-medium text-primary/60 mb-10">Ideal for: Early-stage founders & builders</p>
+
+<ul class="space-y-6 mb-12">
+<li class="flex items-center gap-4 text-on-surface-variant/80 group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-medium">Main Stage Access</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant/80 group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-medium">Networking Lounge</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant/80 group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="font-medium">Certificate of Participation</span>
+</li>
+</ul>
+
+<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank" 
+   class="w-full py-5 rounded-2xl bg-white/5 border border-white/10 text-on-surface-variant font-bold hover:bg-white/10 hover:text-white transition-all text-center block">
+                    Book Now
+                </a>
+</div>
+</div>
+
+<!-- Pro Pass (Focus Card) -->
+<div class="w-full max-w-md bg-gradient-to-br from-[#111827] to-[#1F2937] border-[#6366F1]/25 p-10 md:p-12 rounded-[2.5rem] relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border-2 scale-105">
+<div class="absolute top-6 right-8">
+<span class="bg-[#6366F1]/15 text-[#C7D2FE] border border-[#6366F1]/30 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">
+                        Most Popular
+                    </span>
+</div>
+
+<div class="relative z-10">
+<h3 class="text-xl font-bold mb-1 font-headline text-white">Pro Pass</h3>
+<div class="flex items-baseline gap-1 mb-2">
+<span class="text-2xl font-medium text-white/50">₹</span>
+<span class="text-6xl font-black font-headline text-white text-glow">1999</span>
+</div>
+<p class="text-sm font-medium text-secondary mb-10">Ideal for: Founders looking to raise & network with investors</p>
+
+<ul class="space-y-6 mb-12">
+<li class="flex items-center gap-4 text-white font-medium">
+<span class="material-symbols-outlined text-secondary text-xl">stars</span>
+<span>Everything in Attendee</span>
+</li>
+<li class="flex items-center gap-4 text-white font-medium">
+<span class="material-symbols-outlined text-secondary text-xl">stars</span>
+<span>VIP Lounge & Speaker Access</span>
+</li>
+<li class="flex items-center gap-4 text-white font-bold bg-secondary/10 p-3 rounded-xl border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-xl">stars</span>
+<span>One-on-One Investor Intro</span>
+</li>
+</ul>
+
+<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank" 
+   class="w-full py-5 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-black shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all text-center block">
+                    Book Now
+                </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location -->
+<section class="py-32 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 glass-card rounded-[2.5rem] overflow-hidden">
+<div class="flex-1 p-12 md:p-20">
+<h2 class="font-headline text-4xl font-bold mb-6">Join us at the Heart of Innovation</h2>
+<p class="text-xl text-on-surface-variant mb-12">Subham Convention, Nagole, Hyderabad. A world-class venue designed for grand gatherings.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-primary border border-white/5">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-bold">Nagole, Hyderabad</p>
+<p class="text-sm text-on-surface-variant">500068, Telangana</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 min-h-[400px] relative overflow-hidden">
+<iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60922.675497521464!2d78.49193922167969!3d17.379738999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb98d3635fb175%3A0xc7ba7272fcc0a554!2sSubham%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1774258211771!5m2!1sen!2sin"
+    class="absolute inset-0 w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
     allowfullscreen=""
     loading="lazy">
-  </iframe>
+</iframe>
 </div>
-
-<p class="location-text">
-📍Shubam Convention, Nagole, Hyderabad, Telangana 500068, India.
-</p>
-
+</div>
 </section>
-<!-- CONTACT -->
-<section class="section">
-<h2>Contact</h2>
-<p>Instagram: @hyderabad.entrepreneurs.summit</p>
-<p>Email: sidhartha@ekthaa.app</p>
-</section>
-
-<footer>
-<p>© 2026 EHES Summit</p>
+</main>
+<!-- Footer -->
+<footer class="bg-background w-full border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-8 max-w-7xl mx-auto">
+<div class="text-primary font-bold text-2xl font-headline tracking-tighter uppercase">
+                HSS 2026
+            </div>
+<div class="flex flex-col md:flex-row gap-8 items-center text-sm tracking-wide text-on-surface-variant font-body">
+<a class="hover:text-primary transition-colors flex items-center gap-2" href="https://instagram.com/hyderabad.entrepreneurs.summit">
+<span class="material-symbols-outlined text-xs">link</span> Instagram: @hyderabad.entrepreneurs.summit
+                </a>
+<a class="hover:text-primary transition-colors flex items-center gap-2" href="mailto:sidhartha@ekthaa.app">
+<span class="material-symbols-outlined text-xs">mail</span> Email: sidhartha@ekthaa.app
+                </a>
+</div>
+<div class="text-sm tracking-wide text-on-surface-variant opacity-60">
+                © 2026 Hyderabad Startup Summit. All rights reserved.
+            </div>
+</div>
 </footer>
-
-<script>
-
-function scrollToTickets(){
- document.getElementById("tickets").scrollIntoView({behavior:'smooth'});
-}
-
-function buyTicket(){
- const link = "https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475"; // replace with your link
- window.open(link,'_blank');
-}
-
-</script>
-
-</body>
-</html>
+</body></html>
