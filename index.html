@@ -2,7 +2,7 @@
 
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" name="viewport"/>
 <title>HSS 2026 | Hyderabad Startup Summit</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -39,6 +39,13 @@
       }
     </script>
 <style>
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
+            touch-action: pan-y;
+            -ms-touch-action: pan-y;
+        }
         .glass-card {
             background: rgba(17, 24, 39, 0.4);
             backdrop-filter: blur(20px);
@@ -59,7 +66,7 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 overflow-x-hidden">
 <!-- Top Navigation Bar -->
 <nav class="fixed top-0 w-full z-50 bg-[#0A0F1C]/40 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(59,130,246,0.08)]">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
@@ -73,8 +80,9 @@
 <a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#schedule">Schedule</a>
 <a class="text-[#D1D5DB] hover:text-[#F9FAFB] transition-colors" href="#tickets">Tickets</a>
 </div>
-<a href="#tickets" class="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2.5 rounded-full font-bold active:scale-95 duration-200 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank" class="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2.5 rounded-full font-bold active:scale-95 duration-200 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] flex items-center gap-2">
                 Register Now
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
             </a>
 </div>
 </nav>
@@ -84,28 +92,23 @@
 
 <!-- Central Glow -->
 <div class="absolute inset-0 hero-glow pointer-events-none"></div>
-<section class="relative z-10 container mx-auto px-6 text-center py-32 flex flex-col items-center">
-<!-- Eyebrow -->
-<div class="mb-6 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]">
-<span class="text-secondary font-label font-semibold uppercase tracking-[0.2em] text-sm">
+<div class="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
+<!-- Heading (Enlarged and Replaced) -->
+<h1 class="max-w-6xl text-4xl md:text-7xl lg:text-9xl font-headline font-extrabold tracking-tight mb-16 leading-tight opacity-0 animate-[fadeIn_0.8s_ease-out_forwards] break-words max-w-[100vw]">
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#F9FAFB] via-[#3B82F6] to-[#6366F1] uppercase">
                     Hyderabad Startup Summit 2026
-                </span>
-</div>
-<!-- Heading -->
-<h1 class="max-w-5xl text-5xl md:text-7xl lg:text-8xl font-headline font-extrabold tracking-tighter mb-8 leading-[1.1]">
-<span class="bg-clip-text text-transparent bg-gradient-to-r from-[#F9FAFB] via-[#3B82F6] to-[#6366F1]">
-                    The Digital Pulse of India's Silicon Valley
                 </span>
 </h1>
 <!-- Subtext -->
-<p class="max-w-2xl text-on-surface-variant text-lg md:text-xl leading-relaxed mb-12 font-medium">
+<p class="max-w-2xl text-on-surface-variant text-lg md:text-xl leading-relaxed mb-16 font-medium">
                 Join <span class="text-primary font-bold">1000+ Builders</span>, VCs, and Creators for a weekend of pure innovation.
             </p>
 <!-- CTA Buttons -->
 <div class="flex flex-col sm:flex-row items-center gap-6 mb-24">
-<a href="#tickets" class="group relative bg-gradient-to-br from-primary to-secondary p-[1px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
-<div class="bg-gradient-to-r from-primary to-secondary text-white font-bold px-10 py-4 rounded-full transition-all text-center">
+<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank" class="group relative bg-gradient-to-br from-primary to-secondary p-[1px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+<div class="bg-gradient-to-r from-primary to-secondary text-white font-bold px-10 py-4 rounded-full transition-all text-center flex items-center gap-2">
                         Get Tickets
+                        <span class="material-symbols-outlined">confirmation_number</span>
                     </div>
 </a>
 <a href="#schedule" class="group flex items-center gap-2 px-10 py-4 rounded-full border border-white/10 text-on-surface font-semibold bg-transparent transition-all duration-300 hover:bg-white/5 hover:brightness-110">
@@ -117,7 +120,7 @@
 <div class="w-full max-w-6xl">
 <div class="flex flex-col items-center gap-8">
 <span class="text-white/40 font-label text-xs font-bold tracking-[0.3em] uppercase">
-                        Sponsors &amp; Partners
+                        Organised By
                     </span>
 <div class="w-full bg-[#111827]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-10 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
 <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
@@ -144,7 +147,7 @@
 <label class="font-label text-xs tracking-[0.2em] uppercase font-bold text-secondary mb-4 block">Our Mission</label>
 <h2 class="font-headline text-4xl md:text-5xl font-bold mb-8 leading-tight">Connecting the <span class="text-primary">Builders</span> of Tomorrow.</h2>
 <p class="text-on-surface-variant text-xl leading-relaxed mb-8">
-                        This summit connects founders, creators, investors and students with real-world insights, networking and opportunities. We're building the infrastructure for the next billion-dollar ideas to take flight in the heart of Hyderabad.
+                        This summit brings founders, creators, investors, and students together to share ideas, connect, and explore opportunities in Hyderabad.
                     </p>
 <div class="grid grid-cols-2 gap-8">
 <div>
@@ -210,7 +213,7 @@
 </div>
 <!-- Contextual Detail for larger card -->
 <div class="mt-10 pt-8 border-t border-white/5">
-<img class="w-full h-40 object-cover rounded-xl opacity-20 hover:opacity-40 transition-opacity" data-alt="Modern high-tech startup office interior with collaborative spaces and soft neon lighting accents at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdfio2ihqUt8df_daLoDQk9TOHH1MnmzkMZmx3mb19if-b9txZcTrzpFnDeZfqjgg0r-YM6DN6bURs-amccAef4ph28SBzIB41PYRKljoShPZriUBbck8WihBuPpkIc0FffY520SkkE5JFwgwa66SeamK6BXlDB-ZV-FlOmM9T_FEGXMdyMHXT5dyGAVSQISAXByX_Jber40i5fLinG3dge5TmLjzEt7GwKEcUnLWucxMyM93wAN8U4cqzGDv0gKvmE2NwTWgjXKs"/>
+<img class="w-full h-40 object-cover rounded-xl opacity-20 hover:opacity-40 transition-opacity" data-alt="Modern high-tech startup office interior with collaborative spaces and soft neon lighting accents at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdfio2ihqUt8df_daLoDQk9TOHH1MnmzkMZmx3mb19if-b9txZcTrzpFnDeZfqjgg0r-YM6DN6bURs-amccAef4ph28SBnIB41PYRKljoShPZriUBbck8WihBuPpkIc0FffY520SkkE5JFwgwa66SeamK6BXlDB-ZV-FlOmM9T_FEGXMdyMHXT5dyGAVSQISAXByX_Jber40i5fLinG3dge5TmLjzEt7GwKEcUnLWucxMyM93wAN8U4cqzGDv0gKvmE2NwTWgjXKs"/>
 </div>
 </div>
 <!-- Card 2 (Tech) -->
@@ -560,9 +563,10 @@
 </li>
 </ul>
 
-<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank" 
-   class="w-full py-5 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-black shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all text-center block">
-                    Book Now
+<a href="https://in.bookmyshow.com/events/hyderabad-entrepreneurs-club/ET00492475" target="_blank"
+   class="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary text-on-primary-fixed px-10 py-5 rounded-2xl font-black text-lg shadow-[0_20px_40px_-15px_rgba(59,130,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2">
+                    Get Tickets
+                    <span class="material-symbols-outlined">confirmation_number</span>
                 </a>
 </div>
 </div>
