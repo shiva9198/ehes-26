@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: ehes-26
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
